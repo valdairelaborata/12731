@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/valdairelaborata/12731#readme",
   "dependencies": {
-    "express": "^4.17.3", 
+    "express": "^4.17.3",
+    "http": "^0.0.1-security",
     "sendmail": "1.6.1"
   }
 }
