@@ -5,10 +5,29 @@ var mongoose = require('mongoose');
 var swaggerUI = require('swagger-ui-express');
 var swaggerFile = require('./swagger_output.json');
 
+var Produtos = require('./src/models/produto');
+const produto = require('./src/models/produto');
+
 const app = express()
 const port = 3000
 
 var url = 'mongodb+srv://admin:123@cluster0.3q6c6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const options = {
+    useNewUrlParser: true
+};
+
+
+mongoose.connect(url, options)
+
+mongoose.connection.on('error', (erro) => {
+    console.log('Erro ao conectar com o banco de dados: ' + erro)
+})
+
+
+mongoose.connection.on('connected', () => {
+    console.log('Conectado ao banco de dados!!')
+})
+
 
 
 
@@ -28,8 +47,16 @@ app.post('/produtos', (req, res) => {
     // #swagger.tags = ['Produtos']   
     // #swagger.description = 'Incluir um produto'
 
-    console.log(req.body)
-    res.status(201).send('Tudo ok com o método para criar o produto!')
+    Produtos.create(req.body, (erro, data) => {
+        if (erro) {
+            console.log('Erro a salvar o produto: ' + erro)
+            res.status(500).send('Erro a salvar o produto: ' + erro)
+        }
+        else {
+            console.log('Produto cadastrado com sucesso!!! ' + data)
+            res.status(201).send('Produto cadastrado com sucesso!!!')
+        }
+    })
 })
 
 //R - Read
