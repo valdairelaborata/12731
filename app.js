@@ -1,10 +1,15 @@
 const express = require('express')
-const res = require('express/lib/response')
+
+var mongoose = require('mongoose');
+
 var swaggerUI = require('swagger-ui-express');
 var swaggerFile = require('./swagger_output.json');
 
 const app = express()
 const port = 3000
+
+var url = 'mongodb+srv://admin:123@cluster0.3q6c6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+
 
 
 app.use(express.json())

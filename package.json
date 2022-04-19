@@ -22,6 +22,7 @@
   "homepage": "https://github.com/valdairelaborata/12731#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "mongoose": "^6.3.0",
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
