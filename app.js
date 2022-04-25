@@ -5,8 +5,8 @@ var mongoose = require('mongoose');
 var swaggerUI = require('swagger-ui-express');
 var swaggerFile = require('./swagger_output.json');
 
-var Produtos = require('./src/models/produto');
-const produto = require('./src/models/produto');
+var routeProduto = require('./src/routes/produto');
+
 
 const app = express()
 const port = 3000
@@ -41,8 +41,11 @@ app.get('/', (req, res) => {
     res.send('Opa! Cheguei no get!!')
 })
 
+app.use('/produtos', routeProduto);
+
 //Definição de uma api para CRUD de Produtos
 //C - Create
+/*
 app.post('/produtos', (req, res) => {
     // #swagger.tags = ['Produtos']   
     // #swagger.description = 'Incluir um produto'
@@ -58,7 +61,7 @@ app.post('/produtos', (req, res) => {
         }
     })
 })
-
+ 
 //R - Read
 app.get('/produtos/:codigo', (req, res) => {
     // #swagger.tags = ['Produtos']   
@@ -87,7 +90,7 @@ app.delete('/produtos/:codigo', (req, res) => {
     // #swagger.description = 'Excluir um produto'
     res.status(200).send('Tudo ok com o método para excluir o produto! ' + req.params.codigo)
 })
-
+*/
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
 app.listen(port, () => {
