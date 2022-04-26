@@ -5,8 +5,9 @@ var mongoose = require('mongoose');
 var swaggerUI = require('swagger-ui-express');
 var swaggerFile = require('./swagger_output.json');
 
-var routeProduto = require('./src/routes/produto');
 
+var routeProduto = require('./src/routes/produto');
+var routeUsuario = require('./src/routes/usuario');
 
 const app = express()
 const port = 3000
@@ -42,6 +43,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/produtos', routeProduto);
+app.use('/usuarios', routeUsuario);
 
 //Definição de uma api para CRUD de Produtos
 //C - Create
