@@ -9,6 +9,8 @@ var swaggerFile = require('./swagger_output.json');
 var routeProduto = require('./src/routes/produto');
 var routeUsuario = require('./src/routes/usuario');
 
+var middlewares = require('./src/middlewares/middlewares');
+
 const app = express()
 const port = 3000
 
@@ -42,7 +44,7 @@ app.get('/', (req, res) => {
     res.send('Opa! Cheguei no get!!')
 })
 
-app.use('/produtos', routeProduto);
+app.use('/produtos', middlewares.autenticacao, routeProduto);
 app.use('/usuarios', routeUsuario);
 
 

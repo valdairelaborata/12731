@@ -1,7 +1,0 @@
-
-
-#lab-06
-Criar uma API para cadastro de usuário (login e senha obrigatórios):
-    1 - Um end-point para incluir. 
-    2 - Registrar o usuário no banco.
-    3 - Documentar a API com o Swagger 

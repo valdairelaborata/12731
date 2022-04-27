@@ -1,0 +1,4 @@
+#lab-04
+Implementar autenticação com JWT na API de contato.
+    1 - Logar usuário com dados registrados no MongoDB.
+    2 - Criar middleware para validar o token e continuar na requisição ou negar o acesso.
