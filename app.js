@@ -50,6 +50,6 @@ app.use('/usuarios', routeUsuario);
 
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log('Servidor web ok!')
 })
